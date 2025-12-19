@@ -38,8 +38,9 @@ def main():
         # 2. 正規化（ECS風）
         # =========================
         ecs_logs = []
-        ecs_logs.extend(collector.normalize_to_ecs(proxy_logs))
-        ecs_logs.extend(collector.normalize_to_ecs(firewall_logs))
+        ecs_logs.extend(collector.normalize_to_ec(proxy_logs))
+        ecs_logs.extend(collector.normalize_to_ec(firewall_logs))
+
 
         # =========================
         # 3. ルール適用
