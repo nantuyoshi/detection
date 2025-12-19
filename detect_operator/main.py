@@ -1,53 +1,43 @@
 import time
-import os
+from datetime import datetime
 from detect_operator.log_collector import LogCollector
 from detect_operator.rule_engine import RuleEngine
 from detect_operator.scoring_engine import ScoringEngine
 
+INTERVAL = 300  # 5分
 
 def main():
-    # ★ main.py のあるディレクトリ
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-    # ★ logs フォルダの絶対パス
-    LOG_DIR = os.path.join(BASE_DIR, "logs")
-
-    collector = LogCollector()
-    rule_engine = RuleEngine(os.path.join(BASE_DIR, "rules", "rules.yml"))
-    scorer = ScoringEngine()
-
-    interval = 10
     print("[INFO] 自動ログ収集・検知システム起動")
 
-    try:
-        while True:
-            proxy_logs = collector.load_proxy_logs(
-                os.path.join(LOG_DIR, "proxy.csv")
-            )
-            firewall_logs = collector.load_firewall_logs(
-                os.path.join(LOG_DIR, "firewall.csv")
-            )
+    collector = LogCollector()
+    rule_engine = RuleEngine("detect_operator/rules/rules.yml")
+    scorer = ScoringEngine()
 
-            all_logs = proxy_logs + firewall_logs
+    while True:
+        print(f"[INFO] cycle start {datetime.now()}")
 
-            alerts = []
-            for log in all_logs:
-                result = rule_engine.evaluate_rules(log)
-                if any(result.values()):
-                    alerts.append({"log": log, "alert": result})
+        # ① ログ収集
+        proxy_logs = collector.load_proxy("detect_operator/logs/proxy.csv")
+        fw_logs = collector.load_firewall("detect_operator/logs/firewall.csv")
+        all_logs = proxy_logs + fw_logs
 
-            for alert in alerts:
-                score = scorer.calc_score(alert)
-                print(
-                    f"[ALERT] log={alert['log']} "
-                    f"rule={alert['alert']} score={score}"
-                )
+        # ② ルール適用
+        evaluated_logs = []
+        for log in all_logs:
+            rule_result = rule_engine.evaluate_rules(log)
+            evaluated_logs.append({
+                "log": log,
+                "rule": rule_result
+            })
 
-            time.sleep(interval)
+        # ③ 5分単位スコアリング
+        scores = scorer.group_by_window(evaluated_logs, window_sec=300)
 
-    except KeyboardInterrupt:
-        print("\n[INFO] 自動収集停止")
+        # ④ JSON出力
+        scorer.save_score(scores, "output/score_result.json")
 
+        print("[INFO] cycle end / sleep 5min\n")
+        time.sleep(INTERVAL)
 
 if __name__ == "__main__":
     main()
