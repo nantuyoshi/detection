@@ -7,7 +7,7 @@
     "reason": [
       "small_post"
     ],
-    "timestamp": "2025-12-19T00:58:28.486454"
+    "timestamp": "2025-12-19T01:38:32.545459"
   },
   {
     "client_ip": "192.168.0.3",
@@ -18,7 +18,29 @@
       "unknown_dst",
       "small_post"
     ],
-    "timestamp": "2025-12-19T00:58:28.486466"
+    "timestamp": "2025-12-19T01:38:32.545470"
+  },
+  {
+    "client_ip": "src_ip",
+    "dst_ip": "dest_ip",
+    "score": 15,
+    "level": "LOW",
+    "reason": [
+      "unknown_dst",
+      "small_post"
+    ],
+    "timestamp": "2025-12-19T01:38:32.545474"
+  },
+  {
+    "client_ip": "192.168.0.10",
+    "dst_ip": "203.0.113.50",
+    "score": 15,
+    "level": "LOW",
+    "reason": [
+      "unknown_dst",
+      "small_post"
+    ],
+    "timestamp": "2025-12-19T01:38:32.545477"
   },
   {
     "client_ip": "192.168.0.4",
@@ -29,6 +51,6 @@
       "unknown_dst",
       "small_post"
     ],
-    "timestamp": "2025-12-19T00:58:28.486469"
+    "timestamp": "2025-12-19T01:38:32.545479"
   }
 ]
