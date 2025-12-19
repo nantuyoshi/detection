@@ -1,63 +1,26 @@
-from datetime import datetime, timedelta
-import json
-from collections import defaultdict
-#miru
 class ScoringEngine:
 
-    def __init__(self):
-        pass
+    def calc_score(self, logs):
+        """
+        logs: list
+        ・dict の場合 → ルールベース評価
+        ・str の場合 → 仮スコア
+        """
 
-    # --- ログを IP × IP × 5分ごとにまとめる ---
-    def group_by_window(self, logs: list) -> dict:
-        grouped = defaultdict(list)
+        score = 0
 
-        for log in logs:
-            ts = datetime.fromisoformat(log["@timestamp"])
-            window = ts - timedelta(minutes=ts.minute % 5, seconds=ts.second)
+        for l in logs:
+            # dict を想定した将来用処理
+            if isinstance(l, dict):
+                if l.get("unknown_dst"):
+                    score += 30
+                if l.get("large_transfer"):
+                    score += 40
+                if l.get("rule_hit"):
+                    score += 20
 
-            key = (
-                log.get("source.ip"),
-                log.get("destination.ip"),
-                window.isoformat()
-            )
-            grouped[key].append(log)
+            # 現状（文字列ログ）の暫定処理
+            elif isinstance(l, str):
+                score += 10
 
-        return grouped
-
-    # --- スコア算出 ---
-    def calc_score(self, grouped: dict) -> list:
-        results = []
-
-        for (src, dst, window), logs in grouped.items():
-
-            score = 0
-
-            # 未知の宛先
-            if any(l.get("unknown_dst") for l in logs):
-                score += 30
-
-            # Base64
-            if any(l.get("base64_found") for l in logs):
-                score += 25
-
-            # 大容量
-            if any(l.get("http.request.body.bytes", 0) > 4096 for l in logs):
-                score += 20
-
-            # 短時間大量通信
-            if len(logs) >= 10:
-                score += 25
-
-            results.append({
-                "src_ip": src,
-                "dst_ip": dst,
-                "window": window,
-                "score": score,
-                "alert": score >= 70
-            })
-
-        return results
-
-    def save_score(self, results: list, path: str):
-        with open(path, "w", encoding="utf-8") as f:
-            json.dump(results, f, indent=2)
+        return score
