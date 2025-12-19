@@ -12,7 +12,9 @@ class RuleEngine:
     def is_base64(self, text: str) -> bool:
         if not text:
             return False
+        text = text.strip()  # ← これを追加
         return bool(re.match(r"^[A-Za-z0-9+/=]{20,}$", text))
+
 
     def evaluate_rules(self, log: dict) -> dict:
         result = {
