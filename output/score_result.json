@@ -1,45 +1,10 @@
 [
   {
-    "client_ip": "192.168.0.2",
-    "dst_ip": "8.8.8.8",
-    "score": 10,
+    "timestamp": "2026-01-08T01:54:03.234327",
+    "client_ip": null,
+    "dst_ip": null,
+    "score": 0,
     "level": "LOW",
-    "reason": [
-      "small_post"
-    ],
-    "timestamp": "2025-12-19T03:11:50.966833"
-  },
-  {
-    "client_ip": "192.168.0.3",
-    "dst_ip": "malicious.com",
-    "score": 15,
-    "level": "LOW",
-    "reason": [
-      "small_post",
-      "unknown_dst"
-    ],
-    "timestamp": "2025-12-19T03:11:50.966847"
-  },
-  {
-    "client_ip": "192.168.0.10",
-    "dst_ip": "203.0.113.50",
-    "score": 15,
-    "level": "LOW",
-    "reason": [
-      "small_post",
-      "unknown_dst"
-    ],
-    "timestamp": "2025-12-19T03:11:50.966852"
-  },
-  {
-    "client_ip": "192.168.0.4",
-    "dst_ip": "10.0.0.1",
-    "score": 15,
-    "level": "LOW",
-    "reason": [
-      "small_post",
-      "unknown_dst"
-    ],
-    "timestamp": "2025-12-19T03:11:50.966856"
+    "reason": []
   }
 ]

@@ -1,17 +1,18 @@
 import time
 from datetime import datetime
+from pathlib import Path
 
 from detect_operator.log_collector import LogCollector
 from detect_operator.rule_engine import RuleEngine
 from detect_operator.scoring_engine import ScoringEngine
 
 # ===== 設定 =====
-INTERVAL = 300  # 5分（秒）
 PROXY_LOG = "logs/proxy.csv"
 FIREWALL_LOG = "logs/firewall.csv"
 RULE_FILE = "detect_operator/rules/rules.yml"
-SCORE_OUTPUT = "output/score_result.jsonl"
-ALERT_LOG = "output/alert.log"
+OUTPUT_FILE = "output/score_result.json"
+
+INTERVAL = 300  # 5分（300秒）
 
 
 def main():
@@ -21,61 +22,70 @@ def main():
     rule_engine = RuleEngine(RULE_FILE)
     scorer = ScoringEngine()
 
-    while True:
-        cycle_start = datetime.now()
-        print(f"[INFO] cycle start {cycle_start}")
+    # 出力ディレクトリ保証
+    Path("output").mkdir(exist_ok=True)
 
-        # =========================
-        # 1. ログ収集
-        # =========================
-        proxy_logs = collector.load_proxy(PROXY_LOG)
-        firewall_logs = collector.load_firewall(FIREWALL_LOG)
+    try:
+        while True:
+            cycle_start = datetime.now()
+            print(f"[INFO] cycle start {cycle_start}")
 
-        if not proxy_logs and not firewall_logs:
-            print("[WARN] 収集対象ログなし")
+            # =========================
+            # 1. ログ収集
+            # =========================
+            proxy_logs = collector.load_proxy(PROXY_LOG)
+            firewall_logs = collector.load_firewall(FIREWALL_LOG)
 
-        # =========================
-        # 2. 正規化（ECS風）
-        # =========================
-        ecs_logs = []
-        ecs_logs.extend(collector.normalize_to_ec(proxy_logs))
-        ecs_logs.extend(collector.normalize_to_ec(firewall_logs))
+            ecs_logs = []
+            ecs_logs.extend(collector.normalize_to_ec(proxy_logs))
+            ecs_logs.extend(collector.normalize_to_ec(firewall_logs))
+
+            # =========================
+            # 2. ガード処理（超重要）
+            # =========================
+            if not ecs_logs:
+                print("[WARN] 収集対象ログなし")
+                print("[INFO] cycle end / sleep 5min\n")
+                time.sleep(INTERVAL)
+                continue   # ← ★ 落ちないための核心
+            # =========================
+
+            # =========================
+            # 3. 検知ルール適用
+            # =========================
+            alerts = []
+            for log in ecs_logs:
+                rule_result = rule_engine.evaluate_rules(log)
+                if any(rule_result.values()):
+                    alerts.append({
+                        "log": log,
+                        "rule": rule_result
+                    })
+
+            if not alerts:
+                print("[INFO] 検知イベントなし")
+                print("[INFO] cycle end / sleep 5min\n")
+                time.sleep(INTERVAL)
+                continue
+
+            # =========================
+            # 4. スコアリング
+            # =========================
+            scores = scorer.calc_score(alerts)
+
+            # =========================
+            # 5. 結果保存（追記）
+            # =========================
+            scorer.save_score(scores)
 
 
-        # =========================
-        # 3. ルール適用
-        # =========================
-        alerts = []
-        for log in ecs_logs:
-            matched = rule_engine.apply_rules(log)
-            if matched:
-                alerts.append({
-                    "cycle_start": cycle_start.isoformat(),
-                    "log": log,
-                    "rule": matched
-                })
+            print(f"[INFO] alert count = {len(scores)}")
+            print("[INFO] cycle end / sleep 5min\n")
 
-        # =========================
-        # 4. スコアリング
-        # =========================
-        scores = scorer.calc_score(alerts)
+            time.sleep(INTERVAL)
 
-        # =========================
-        # 5. 結果保存（追記）
-        # =========================
-        if scores:
-            scorer.save_score(scores, SCORE_OUTPUT)
-            scorer.save_alert_log(scores, ALERT_LOG)
-            print(f"[INFO] {len(scores)} alerts saved")
-        else:
-            print("[INFO] no alert")
-
-        print("[INFO] cycle end / sleep 5min\n")
-
-        # =========================
-        # 6. 次サイクルまで待機
-        # =========================
-        time.sleep(INTERVAL)
+    except KeyboardInterrupt:
+        print("\n[INFO] システムを手動停止しました")
 
 
 if __name__ == "__main__":
