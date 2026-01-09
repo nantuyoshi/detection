@@ -1,0 +1,5 @@
+timestamp,event_type,detail
+2026-01-08 10:00:00,PROCESS_CREATE,cmd.exe
+2026-01-08 10:00:05,FILE_ACCESS,secret.txt
+2026-01-08 10:00:10,NETWORK_CONNECT,unknown.exe
+
