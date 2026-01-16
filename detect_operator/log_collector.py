@@ -1,3 +1,4 @@
+#log_collector.py
 import csv
 from pathlib import Path
 from datetime import datetime

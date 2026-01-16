@@ -7,3 +7,6 @@
 2026-01-09 02:08:09.931188 ALERT {'event_type': 'NETWORK_CONNECT', 'detail': 'unknown.exe'}
 2026-01-09 02:23:03 ALERT {'event_type': 'NETWORK_CONNECT', 'detail': 'unknown.exe'}
 2026-01-13 00:46:09 ALERT {'event_type': 'NETWORK_CONNECT', 'detail': 'unknown.exe'}
+2026-01-16 02:18:28 ALERT {'event_type': 'NETWORK_CONNECT', 'destination.domain': '127.0.0.1', 'http.request.method': 'POST', 'http.request.body.bytes': 8, 'http.request.body.contents': 'dGlubnRpbm4=', 'source.ip': '127.0.0.1', 'file_id': '3_important.txt', 'chunk_id': 0}
+2026-01-16 02:18:33 ALERT {'event_type': 'NETWORK_CONNECT', 'destination.domain': '127.0.0.1', 'http.request.method': 'POST', 'http.request.body.bytes': 8, 'http.request.body.contents': 'dGlubnRpbm4=', 'source.ip': '127.0.0.1', 'file_id': '3_important.txt', 'chunk_id': 0}
+2026-01-16 02:18:43 ALERT {'event_type': 'NETWORK_CONNECT', 'destination.domain': '127.0.0.1', 'http.request.method': 'POST', 'http.request.body.bytes': 8, 'http.request.body.contents': 'dGlubnRpbm4=', 'source.ip': '127.0.0.1', 'file_id': '3_important.txt', 'chunk_id': 0}
