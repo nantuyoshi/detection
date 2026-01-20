@@ -6,6 +6,7 @@ from .log_collector import LogCollector
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 ALERT_LOG_PATH = os.path.join(BASE_DIR, "alert.log")
+DETECTION_FLAG = os.path.join(BASE_DIR, "detection_on.flag")
 
 collector = LogCollector()
 
@@ -17,6 +18,12 @@ WHITELIST_DOMAINS = {
 
 BASE64_RE = re.compile(r"^[A-Za-z0-9+/=]{50,}$")
 
+
+def detection_enabled() -> bool:
+    """
+    検知ON/OFF判定
+    """
+    return os.path.exists(DETECTION_FLAG)
 
 def is_suspicious(event: dict) -> bool:
     """
