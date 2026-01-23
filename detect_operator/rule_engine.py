@@ -1,10 +1,14 @@
 import yaml
 import re
+from pathlib import Path
 
 class RuleEngine:
 
     def __init__(self, rule_path: str):
-        with open(rule_path, "r", encoding="utf-8") as f:
+        base_dir = Path(__file__).resolve().parent
+        rule_file = base_dir / "rules" / rule_path
+
+        with open(rule_file, "r", encoding="utf-8") as f:
             self.rules = yaml.safe_load(f)
 
         self.whitelist = self.rules.get("whitelist", [])
