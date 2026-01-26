@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class ScoringEngine:
@@ -8,32 +8,60 @@ class ScoringEngine:
         self.out_dir = out_dir
         os.makedirs(self.out_dir, exist_ok=True)
 
+        # ★ 追加：連続検知の状態
+        self.history = {}
+        self.reset_interval = timedelta(seconds=60)  # 60秒空いたらリセット
+
     def calc_score(self, alerts):
         """
-        alert情報からスコア算出
+        alert情報からスコア算出（連続検知で昇格）
         """
         results = []
+        now = datetime.now()
 
         for alert in alerts:
             score = 0
             reasons = []
 
-            # 宛先IPが未知
+            src_ip = alert.get("src_ip")
+
+            # ===== 既存ルール =====
             if alert.get("unknown_dst"):
                 score += 10
                 reasons.append("unknown_dst")
 
-            # Base64らしきデータ
             if alert.get("base64_found"):
                 score += 15
                 reasons.append("base64_found")
 
-            # POSTサイズが小さい（分割送信疑い）
             if alert.get("small_post"):
                 score += 10
                 reasons.append("small_post")
 
-            # レベル判定
+            # ===== 追加：連続検知 =====
+            if src_ip:
+                state = self.history.get(src_ip)
+
+                if not state:
+                    self.history[src_ip] = {
+                        "count": 1,
+                        "last_seen": now
+                    }
+                else:
+                    if now - state["last_seen"] > self.reset_interval:
+                        state["count"] = 1  # リセット
+                    else:
+                        state["count"] += 1
+
+                    state["last_seen"] = now
+
+                count = self.history[src_ip]["count"]
+
+                # 連続回数ボーナス
+                score += count * 5
+                reasons.append(f"repeat_{count}")
+
+            # ===== レベル判定（既存のまま）=====
             if score >= 35:
                 level = "HIGH"
             elif score >= 20:
@@ -42,8 +70,8 @@ class ScoringEngine:
                 level = "LOW"
 
             results.append({
-                "timestamp": datetime.now().isoformat(),
-                "client_ip": alert.get("src_ip"),
+                "timestamp": now.isoformat(),
+                "client_ip": src_ip,
                 "dst_ip": alert.get("dest_ip"),
                 "score": score,
                 "level": level,

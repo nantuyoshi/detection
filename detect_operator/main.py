@@ -66,8 +66,13 @@ def main():
 
             if any(detection.values()):
                 alerts.append({
-                    **ecs,
-                    "reason": [k for k, v in detection.items() if v]
+                    "src_ip": ecs.get("client_ip"),
+                    "dest_ip": ecs.get("dst_ip"),
+
+                    # RuleEngine の結果を bool として渡す
+                    "unknown_dst": detection.get("unknown_dst", False),
+                    "base64_found": detection.get("base64_found", False),
+                    "small_post": detection.get("small_post", False),
                 })
 
         scores = scorer.calc_score(alerts)

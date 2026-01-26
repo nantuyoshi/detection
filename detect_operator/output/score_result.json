@@ -1,234 +1,654 @@
 [
   {
-    "timestamp": "2026-01-23T01:28:44.886116",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "192.168.0.10",
+    "dst_ip": "203.0.113.50",
+    "score": 25,
+    "level": "MEDIUM",
+    "reason": [
+      "unknown_dst",
+      "small_post",
+      "repeat_1"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886914",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 15,
     "level": "LOW",
-    "reason": []
+    "reason": [
+      "unknown_dst",
+      "repeat_1"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886921",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 20,
+    "level": "MEDIUM",
+    "reason": [
+      "unknown_dst",
+      "repeat_2"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886927",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 25,
+    "level": "MEDIUM",
+    "reason": [
+      "unknown_dst",
+      "repeat_3"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886930",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 30,
+    "level": "MEDIUM",
+    "reason": [
+      "unknown_dst",
+      "repeat_4"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886932",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 35,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_5"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886936",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 40,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_6"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886939",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 45,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_7"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886941",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 50,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_8"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886943",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 55,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_9"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886945",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 60,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_10"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886948",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 65,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_11"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886950",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 70,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_12"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886952",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 75,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_13"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886954",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 80,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_14"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886956",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 85,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_15"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886958",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 90,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_16"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886964",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 95,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_17"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886966",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 100,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_18"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886968",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 105,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_19"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886970",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 110,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_20"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886972",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 115,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_21"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886976",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 120,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_22"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886979",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 125,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_23"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886981",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 130,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_24"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886983",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 135,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_25"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886985",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 140,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_26"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886987",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 145,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_27"
+    ]
   },
   {
-    "timestamp": "2026-01-23T01:28:44.886991",
-    "client_ip": null,
-    "dst_ip": null,
-    "score": 0,
-    "level": "LOW",
-    "reason": []
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 150,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_28"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 165,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "small_post",
+      "repeat_29"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 160,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_30"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 165,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_31"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 170,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_32"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 175,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_33"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 180,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_34"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 185,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_35"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 190,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_36"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 195,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_37"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 200,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_38"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 205,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_39"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 210,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_40"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 215,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_41"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 220,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_42"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 225,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_43"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 230,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_44"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 235,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_45"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 240,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_46"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 245,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_47"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 250,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_48"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 255,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_49"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 260,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_50"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 265,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_51"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 270,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_52"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 275,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_53"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 280,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_54"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 285,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_55"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 290,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_56"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 295,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "repeat_57"
+    ]
+  },
+  {
+    "timestamp": "2026-01-26T02:07:44.577762",
+    "client_ip": "127.0.0.1",
+    "dst_ip": "collector.test",
+    "score": 310,
+    "level": "HIGH",
+    "reason": [
+      "unknown_dst",
+      "small_post",
+      "repeat_58"
+    ]
   }
 ]
