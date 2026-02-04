@@ -70,7 +70,7 @@ def main():
                     "dest_ip": ecs.get("dst_ip"),
 
                     # RuleEngine の結果を bool として渡す
-                    "unknown_dst": detection.get("unknown_dst", False),
+                    "dns_missing": detection.get("dns_missing", False),
                     "base64_found": detection.get("base64_found", False),
                     "small_post": detection.get("small_post", False),
                 })

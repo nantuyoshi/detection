@@ -8,7 +8,6 @@ class ScoringEngine:
         self.out_dir = out_dir
         os.makedirs(self.out_dir, exist_ok=True)
 
-        # ★ 追加：連続検知の状態
         self.history = {}
         self.reset_interval = timedelta(seconds=60)  # 60秒空いたらリセット
 
@@ -26,10 +25,6 @@ class ScoringEngine:
             src_ip = alert.get("src_ip")
 
             # ===== 既存ルール =====
-            if alert.get("unknown_dst"):
-                score += 10
-                reasons.append("unknown_dst")
-
             if alert.get("base64_found"):
                 score += 15
                 reasons.append("base64_found")
@@ -37,6 +32,10 @@ class ScoringEngine:
             if alert.get("small_post"):
                 score += 10
                 reasons.append("small_post")
+
+            if alert.get("dns_missing"):
+                score += 5
+                reasons.append("dns_missing")
 
             # ===== 追加：連続検知 =====
             if src_ip:
