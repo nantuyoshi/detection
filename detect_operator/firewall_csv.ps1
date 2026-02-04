@@ -27,3 +27,6 @@ ForEach-Object {
     }
 } | Export-Csv $outCsv -NoTypeInformation -Encoding UTF8
 # powershell.exe -ExecutionPolicy Bypass -File firewall_csv.ps1をdetect_operatorで打つこと
+#$action = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy Bypass -File 'C:\Users\Administrator\Desktop\detection\detect_operator\firewall_csv.ps1'"
+#$trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 10) -RepetitionDuration ([TimeSpan]::MaxValue)
+#Register-ScheduledTask -TaskName "FirewallCSVExport" -Action $action -Trigger $trigger -RunLevel Highest -User "Administrator"も打つこと
