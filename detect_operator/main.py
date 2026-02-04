@@ -5,6 +5,7 @@ from rule_engine import RuleEngine
 from scoring_engine import ScoringEngine
 
 PROXY_LOG = "logs/proxy.csv"
+FIREWALL_LOG = "logs/firewall.csv"
 ALERT_LOG = "alert.log"
 INTERVAL = 10
 
@@ -50,8 +51,24 @@ def main():
     while True:
         proxy_logs = collector.load_proxy(PROXY_LOG)
         ecs_logs = collector.normalize_to_ec(proxy_logs)
+        fw_logs = collector.load_firewall(FIREWALL_LOG)
+        fw_ecs_logs = collector.normalize_to_ec(fw_logs)
+
 
         new_logs = filter_new_logs(ecs_logs)
+        new_fw_logs = filter_new_logs(fw_ecs_logs)
+
+        fw_https_map = set()
+
+        for fw in new_fw_logs:
+            if (
+                fw.get("destination.port") == 443 and
+                fw.get("action") == "ALLOW"
+            ):
+                fw_https_map.add((
+                    fw.get("client_ip"),
+                    fw.get("dst_ip")
+                ))
 
         if not new_logs:
             print("[INFO] 新規ログなし")
@@ -65,6 +82,11 @@ def main():
             detection = rule_engine.evaluate_rules(rule_input)
 
             if any(detection.values()):
+                fw_hit = (
+                                ecs.get("client_ip"),
+                                ecs.get("dst_ip")
+                ) in fw_https_map
+
                 alerts.append({
                     "src_ip": ecs.get("client_ip"),
                     "dest_ip": ecs.get("dst_ip"),
@@ -73,6 +95,8 @@ def main():
                     "dns_missing": detection.get("dns_missing", False),
                     "base64_found": detection.get("base64_found", False),
                     "small_post": detection.get("small_post", False),
+
+                    "fw_https": fw_hit
                 })
 
         scores = scorer.calc_score(alerts)

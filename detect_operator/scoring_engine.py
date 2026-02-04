@@ -37,6 +37,10 @@ class ScoringEngine:
                 score += 5
                 reasons.append("dns_missing")
 
+            if alert.get("fw_https"):
+                score += 10
+                reasons.append("fw_https")
+
             # ===== 追加：連続検知 =====
             if src_ip:
                 state = self.history.get(src_ip)
